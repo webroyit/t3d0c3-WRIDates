@@ -9,13 +9,14 @@ import TinderCards from './components/TinderCards';
 function App() {
   return (
     <div className="App">
-      <Header />
       <Router>
         <Switch>
           <Route path="/chat">
+            <Header backButton="/" />
             <h1>Chat Page</h1>
           </Route>
           <Route path="/">
+            <Header />
             <TinderCards />
             <SwipeButtons />
           </Route>
