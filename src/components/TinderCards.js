@@ -15,9 +15,15 @@ function TinderCards() {
     useEffect(() => {
         // Get all people from firebase database
         // onSnapshot() is a listener
-        database.collection('people').onSnapshot(snapshot => {
+        const unsubscribe = database.collection('people').onSnapshot(snapshot => {
             setPeople(snapshot.docs.map(doc => doc.data()));
         });
+
+        return () => {
+            // This is the cleanup
+            // Remove the old listener from the browser if onSnapshot() is called again
+            unsubscribe();
+        }
 
         // This will run once when component loads if the array is empty
     }, [])
