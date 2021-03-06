@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './App.css';
 import Chats from './components/Chats';
+import ChatScreen from './components/ChatScreen';
 import Header from './components/Header';
 import SwipeButtons from './components/SwipeButtons';
 import TinderCards from './components/TinderCards';
@@ -12,6 +13,11 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
+          {/* ':' is a wild card which means any value */}
+          <Route path="/chat/:person">
+            <Header backButton="/chat" />
+            <ChatScreen />
+          </Route>
           <Route path="/chat">
             <Header backButton="/" />
             <Chats />
