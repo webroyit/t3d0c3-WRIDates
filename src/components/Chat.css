@@ -1,3 +1,8 @@
+a {
+    text-decoration: none;      /* No underline */
+    color: inherit;
+}
+
 .chat {
     display: flex;
     align-items: center;
